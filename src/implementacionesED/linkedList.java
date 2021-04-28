@@ -159,24 +159,17 @@ public class linkedList<T> {
 	return equal;
 	}
 	
-	public Node<T> returnElement(T dataIn){
-		Node<T> retNode = null;
-		Node<T> aux = this.head;
-	
-		//Recorrer lista
-		while(aux != null) {
-			//Comparar y encontrar
-			if(aux.data == dataIn) {
-				retNode = aux;
-				break;
-			}
-		aux = aux.next;
-		}
-		//Si no existe
-		if(aux.data != dataIn) {
-			return null;
-		}
-	return retNode;
+	public T returnElement(int index){
+		Node<T> current = head;
+        int cont = 0;
+        while (current != null)
+        {
+            if (cont == index)
+                return current.data;
+            cont++;
+            current = current.next;
+        }
+    return null;
 	}
 
 	public void printList() {
