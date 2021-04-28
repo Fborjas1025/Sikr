@@ -4,29 +4,40 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		listaDoble<Integer> ld = new listaDoble<>();
-		int dataPrueba =  10000000;
+		linkedList<Productos> ld = new linkedList<>();
+//		int dataPrueba =  10000000;
+		
+		
 		
 		long t1 = System.nanoTime();
-		for(int a = 0; a <= dataPrueba ; a++) {
-			ld.agregarInicio(a);
+		for(int a = 0; a <= 100 ; a++) {
+			Productos prod1 = new Productos(10000, "M", "Rojo", "Adiolas","Camiseta polo",  10);
+			Productos prod2 = new Productos(15000, "L", "Azul", "Mike","Gorra deportiva",  7);
+			ld.addFront(prod1);
+			ld.addEnd(prod2);
 		}
 		long t2 =  System.nanoTime();
 		long tt = t2 -t1;
 		System.out.println("agregarInicio : " + (tt));
 		
-		long a1 = System.nanoTime();
-		ld.encontrarElemento(dataPrueba/2);
-		long a2 =  System.nanoTime();
-		long at = a2 -a1;
-		System.out.println("encontrar elemento mitad : " + (at));
+		Productos prodSearch = ld.returnElement(51);
+		Productos prodSearc = ld.returnElement(101);
 		
-		long b1 = System.nanoTime();
-		ld.eliminar(dataPrueba/2);
-		//ld.eliminarInicio();
-		long b2 = System.nanoTime();	
-		long b3 =  b2 - b1;
-		System.out.println("eliminar mitad : " + (b3));
+		System.out.println(prodSearch.getNombre());
+		System.out.println(prodSearc.getNombre());
+		
+//		long a1 = System.nanoTime();
+//		ld.encontrarElemento(dataPrueba/2);
+//		long a2 =  System.nanoTime();
+//		long at = a2 -a1;
+//		System.out.println("encontrar elemento mitad : " + (at));
+//		
+//		long b1 = System.nanoTime();
+//		ld.eliminar(dataPrueba/2);
+//		//ld.eliminarInicio();
+//		long b2 = System.nanoTime();	
+//		long b3 =  b2 - b1;
+//		System.out.println("eliminar mitad : " + (b3));
 	
 		
 //		arrayQueue<Integer> aQ= new arrayQueue<>();
